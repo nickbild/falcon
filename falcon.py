@@ -43,7 +43,7 @@ def read_device_events(device_path):
     for event in dev.read_loop():
         if event.type == ecodes.EV_KEY:
             if event.value == 1: # Key down. 
-                playsound("typing_sound.wav")
+                playsound("typing_sound_short.wav")
 
 
 client = genai.Client(api_key=os.getenv('GENAIAPI'))
@@ -69,6 +69,9 @@ for path in keyboard_device_paths:
 os.system('clear')
 response = chat_session.send_message("Hello.")
 print("\n{0}\n".format(response.text.upper()))
+
+for _ in range(5):
+    playsound("typing_sound_short.wav")
 
 say_it = ''.join(filter(whitelist.__contains__, response.text.upper()))
 os.system("python3 speech.py '{0}'".format(say_it))
