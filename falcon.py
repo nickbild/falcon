@@ -10,6 +10,9 @@ import glob
 from playsound import playsound
 
 
+whitelist = set('abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+
+
 def find_keyboard_device_paths():
     """
     Attempts to find all devices that appear to be keyboards.
@@ -67,8 +70,14 @@ os.system('clear')
 response = chat_session.send_message("Hello.")
 print("\n{0}\n".format(response.text.upper()))
 
+say_it = ''.join(filter(whitelist.__contains__, response.text.upper()))
+os.system("python3 speech.py '{0}'".format(say_it))
+
 while True:
     message = input()
     response = chat_session.send_message(message)
     print("\n{0}\n".format(response.text.upper()))
+
+    say_it = ''.join(filter(whitelist.__contains__, response.text.upper()))
+    os.system("python3 speech.py '{0}'".format(say_it))
 
