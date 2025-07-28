@@ -8,6 +8,7 @@ import random
 from evdev import InputDevice, categorize, ecodes
 import glob
 from playsound import playsound
+import subprocess
 
 
 whitelist = set('abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ')
@@ -43,7 +44,7 @@ def read_device_events(device_path):
     for event in dev.read_loop():
         if event.type == ecodes.EV_KEY:
             if event.value == 1: # Key down. 
-                playsound("typing_sound_short.wav")
+                playsound("typing_sound_short2.wav")
 
 
 client = genai.Client(api_key=os.getenv('GENAIAPI'))
@@ -52,7 +53,8 @@ chat_session = client.chats.create(
     history=[
         UserContent(parts=[Part(text="""I want to role play where you are WOPR from the movie WarGames. 
                                 I am David Lightman, but have accessed the system as Professor Falken and that is who you think I am. 
-                                Interact with me as if you are WOPR. Do not include any metadata in your responses, just the responses from WOPR.""")]),
+                                Interact with me as if you are WOPR. Do not include any metadata in your responses, just the responses from WOPR.
+                                Keep your responses short and concise, no more than 15 words.""")]),
     ],
 )
 
@@ -68,19 +70,36 @@ for path in keyboard_device_paths:
 
 os.system('clear')
 response = chat_session.send_message("Hello.")
-print("\n{0}\n".format(response.text.upper()))
 
-for _ in range(5):
-    playsound("typing_sound_short.wav")
-
+# Speak the response in the background.
 say_it = ''.join(filter(whitelist.__contains__, response.text.upper()))
-os.system("python3 speech.py '{0}'".format(say_it))
+subprocess.Popen(['python3', 'speech.py', say_it], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+# Write out the response, character by character, and play a sound.
+print()
+i = 0
+for c in response.text.upper():
+    if i % 5 == 0:
+        playsound("typing_sound_short2.wav")
+    i+=1
+    print(c, end='', flush=True)
+print("\n")
 
 while True:
+    # Collect and process user input.
     message = input()
     response = chat_session.send_message(message)
-    print("\n{0}\n".format(response.text.upper()))
 
+    # Speak the response in the background.
     say_it = ''.join(filter(whitelist.__contains__, response.text.upper()))
-    os.system("python3 speech.py '{0}'".format(say_it))
+    subprocess.Popen(['python3', 'speech.py', say_it], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
+    # Write out the response, character by character, and play a sound.
+    print()
+    i = 0
+    for c in response.text.upper():
+        if i % 5 == 0:
+            playsound("typing_sound_short2.wav")
+        i+=1
+        print(c, end='', flush=True)
+    print("\n")
