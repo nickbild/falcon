@@ -8,7 +8,7 @@ Shall we play a game?
 
 ## How It Works
 
-This [Python script](https://github.com/nickbild/falcon/blob/main/falcon.py) instructs a Google Gemini 2.5 Flash LLM to role play as if it were WOPR from the movie *WarGames*. As the user types (and as LLM responses come in), a sound is played mimicking the keypress sounds from the movie. Repsonses are also spoken through an SP0256-AL2 speech chip using my [GI-Pi Python library](https://github.com/nickbild/gi-pi). The lexconvert utility converts text strings into a list of allophones compatible with the chip. The cool-retro-term terminal emulator, with a custom profile, simulates interacting with WOPR on a 1980s CRT computer monitor resembling the one in the movie. 
+This [Python script](https://github.com/nickbild/falcon/blob/main/falcon.py) instructs a Google Gemini 2.5 Flash LLM to role play as if it were WOPR from the movie *WarGames*. As the user types (and as LLM responses come in), a sound is played mimicking the keypress sounds from the movie. Responses are also spoken through an SP0256-AL2 speech chip using my [GI-Pi Python library](https://github.com/nickbild/gi-pi). The lexconvert utility converts text strings into a list of allophones compatible with the chip. The cool-retro-term terminal emulator, with a custom profile, simulates interacting with WOPR on a 1980s CRT computer monitor resembling the one in the movie. 
 
 ## Media
 
