@@ -6,7 +6,7 @@ Shall we play a game?
 
 ![](https://raw.githubusercontent.com/nickbild/falcon/refs/heads/main/media/screenshot.jpg)
 
-Now that is how we are really supposed to talk to artificially superintelligent machines!
+Now that is how we are really meant to talk to artificially superintelligent machines!
 
 ## How It Works
 
