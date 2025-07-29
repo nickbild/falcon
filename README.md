@@ -5,3 +5,7 @@ Falcon simulates interacting with WOPR from the 1983 movie *WarGames* by using a
 Shall we play a game?
 
 ![](https://raw.githubusercontent.com/nickbild/falcon/refs/heads/main/media/screenshot.jpg)
+
+![](https://raw.githubusercontent.com/nickbild/falcon/refs/heads/main/media/hardware_sm.jpg)
+
+![](https://raw.githubusercontent.com/nickbild/falcon/refs/heads/main/media/running_falcon_sm.jpg)
