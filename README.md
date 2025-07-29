@@ -23,7 +23,7 @@ This [Python script](https://github.com/nickbild/falcon/blob/main/falcon.py) ins
 - 1 x Raspberry Pi 400
 - 1 x SP0256-AL2 speech chip and audio amplification circuit (see [GI-Pi](https://github.com/nickbild/gi-pi))
 - 1 x USB speaker
-- 1 x TRRS speaker
+- 1 x Speaker with TRRS connector
 
 ## About the Author
 
