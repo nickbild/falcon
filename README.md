@@ -6,6 +6,21 @@ Shall we play a game?
 
 ![](https://raw.githubusercontent.com/nickbild/falcon/refs/heads/main/media/screenshot.jpg)
 
+## How It Works
+
+## Media
+
 ![](https://raw.githubusercontent.com/nickbild/falcon/refs/heads/main/media/hardware_sm.jpg)
 
 ![](https://raw.githubusercontent.com/nickbild/falcon/refs/heads/main/media/running_falcon_sm.jpg)
+
+## Bill of Materials
+
+- 1 x Raspberry Pi 400
+- 1 x SP0256-AL2 speech chip and audio amplification circuit (see [GI-Pi](https://github.com/nickbild/gi-pi))
+- 1 x USB speaker
+- 1 x TRRS speaker
+
+## About the Author
+
+[Nick A. Bild, MS](https://nickbild79.firebaseapp.com/#!/)
